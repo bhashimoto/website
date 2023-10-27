@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ current_date|date:"l, F jS" }} </h1>
+    {% if habits %}
+        {% for habit in habits %}
+        <a href="{% url 'habit_tracker:detail' habit.id %}"><h2>{{ habit.name }}</h2></a>
+
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}

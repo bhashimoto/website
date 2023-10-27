@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Post
@@ -16,3 +16,10 @@ def publish(request):
     new_post = Post(title=request.POST['title'], content=request.POST['content'])
     new_post.save()
     return redirect('blog:index')
+
+def details(request, id):
+    post = get_object_or_404(Post, pk=id)
+    context = {
+        'post': post
+    }
+    return render(request, 'blog/post_details.html', context)

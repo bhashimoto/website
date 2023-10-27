@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>New Habit</h1>
+    <form action="{% url 'habit_tracker:publish' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <div class="fieldWrapper form-label">
+                {{ form.name.errors }}
+                <label for="{{ form.name.id_for_name }}">What do you want to track?</label>
+                {{ form.name }}
+            </div>
+            <div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.sunday.errors }}
+                    {{ form.sunday }}
+                    <label for="{{ form.sunday.id_for_sunday }}">Sunday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.monday.errors }}
+                    {{ form.monday }}
+                    <label for="{{ form.monday.monday }}">Monday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.tuesday.errors }}
+                    {{ form.tuesday }}
+                    <label for="{{ form.tuesday.id_for_tuesday }}">Tuesday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.wednesday.errors }}
+                    {{ form.wednesday }}
+                    <label for="{{ form.wednesday.id_for_wednesday }}">Wednesday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.thursday.errors }}
+                    {{ form.thursday }}
+                    <label for="{{ form.thursday.id_for_thursday }}">Thursday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.friday.errors }}
+                    {{ form.friday }}
+                    <label for="{{ form.friday.id_for_friday }}">Friday</label>
+                </div>
+                <div class="fieldWrapper form-label form-check-inline">
+                    {{ form.saturday.errors }}
+                    {{ form.saturday }}
+                    <label for="{{ form.saturday.id_for_saturday }}">Saturday</label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Publish">
+        </div>
+    </form>
+</div>
+{% endblock %}

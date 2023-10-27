@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if habit %}
+    <h1>{{ habit.name }}</h1>
+    <ul>
+        {% if habit.sunday %}
+            <li>Sunday</li>
+        {% endif %}
+        {% if habit.monday %}
+            <li>Monday</li>
+        {% endif %}
+        {% if habit.Tuesday %}
+            <li>Tuesday</li>
+        {% endif %}
+        {% if habit.Wednesday %}
+            <li>Wednesday</li>
+        {% endif %}
+        {% if habit.thursday %}
+            <li>Thursday</li>
+        {% endif %}
+        {% if habit.friday %}
+            <li>Friday</li>
+        {% endif %}
+        {% if habit.saturday %}
+            <li>Saturday</li>
+        {% endif %}
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
