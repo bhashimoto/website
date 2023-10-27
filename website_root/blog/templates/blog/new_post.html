@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>New Post</h1>
+    <form action="{% url 'blog:publish' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <div class="mb-3">
+                <label for="title_input" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title_input" name="title">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="content_input" name="content" rows="6"></textarea>
+            </div>
+        </fieldset>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Publish">
+        </div>
+    </form>
+</div>
+{% endblock %}
